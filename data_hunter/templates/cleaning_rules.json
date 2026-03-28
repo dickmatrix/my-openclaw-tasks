@@ -1,0 +1,64 @@
+{
+  "regex_patterns": [
+    {
+      "name": "email_validation",
+      "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      "description": "邮箱验证",
+      "confidence": 0.95
+    },
+    {
+      "name": "phone_number",
+      "pattern": "^\\+?1?\\d{9,15}$",
+      "description": "电话号码",
+      "confidence": 0.90
+    },
+    {
+      "name": "url_validation",
+      "pattern": "^https?://[^\\s/$.?#].[^\\s]*$",
+      "description": "URL 验证",
+      "confidence": 0.92
+    },
+    {
+      "name": "date_format",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "日期格式 (YYYY-MM-DD)",
+      "confidence": 0.98
+    }
+  ],
+  "scraping_strategies": [
+    {
+      "name": "rate_limiting",
+      "description": "速率限制",
+      "delay": 1,
+      "max_concurrent": 1
+    },
+    {
+      "name": "user_agent_rotation",
+      "description": "User-Agent 轮换",
+      "agents": [
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+      ]
+    }
+  ],
+  "cleaning_rules": [
+    {
+      "name": "remove_duplicates",
+      "description": "移除重复行",
+      "method": "drop_duplicates"
+    },
+    {
+      "name": "handle_missing_values",
+      "description": "处理缺失值",
+      "method": "fillna",
+      "strategy": "mean"
+    },
+    {
+      "name": "normalize_text",
+      "description": "文本规范化",
+      "method": "lower",
+      "strip": true
+    }
+  ]
+}

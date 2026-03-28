@@ -1,0 +1,68 @@
+{
+  "workflow": {
+    "name": "Data Collection & Cleaning Automation",
+    "version": "1.0.0",
+    "stages": [
+      {
+        "name": "Scout Hunting",
+        "agent": "Scout",
+        "action": "data_hunter.py",
+        "trigger": "schedule:daily:09:00",
+        "output": "scout_report.md",
+        "success_marker": "#SCOUT_READY"
+      },
+      {
+        "name": "Task Analysis",
+        "agent": "Scout",
+        "action": "analyze_task",
+        "input": "scout_report.md",
+        "output": "task_analysis.json",
+        "success_marker": "#ANALYSIS_COMPLETE"
+      },
+      {
+        "name": "Code Generation",
+        "agent": "Writer",
+        "action": "generate_cleaning_code",
+        "input": "task_analysis.json",
+        "output": "cleaning_script.py",
+        "constraints": [
+          "must_use_data_validator",
+          "must_include_schema_check",
+          "must_handle_outliers"
+        ],
+        "success_marker": "#WRITER_PATCHED"
+      },
+      {
+        "name": "Automated Testing",
+        "agent": "Auditor-Code",
+        "action": "run_tests",
+        "input": "cleaning_script.py",
+        "output": "audit_report.md",
+        "success_criteria": {
+          "tests_pass": true,
+          "schema_valid": true,
+          "success_rate": 0.95
+        },
+        "success_marker": "#AUDIT_PASS"
+      },
+      {
+        "name": "Knowledge Preservation",
+        "agent": "System",
+        "action": "save_to_vector_db",
+        "input": "cleaning_script.py",
+        "output": "vector_embedding",
+        "storage": "${OPENCLAW_WORKSPACE}/vector_db/data_cleaning"
+      }
+    ],
+    "parallelization": {
+      "enabled": false,
+      "max_concurrent": 1,
+      "reason": "防止爬虫 IP 被封禁"
+    },
+    "error_handling": {
+      "on_failure": "trigger_iteration",
+      "max_retries": 3,
+      "backoff_strategy": "exponential"
+    }
+  }
+}
