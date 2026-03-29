@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "created_at": "2026-03-29T00:00:00Z",
+  "schemas": {
+    "data_cleaning_schema": {
+      "name": "data_cleaning_schema",
+      "version": "1.0.0",
+      "description": "数据清洗标准 Schema",
+      "fields": {
+        "id": {
+          "type": "int",
+          "required": true,
+          "description": "唯一标识符"
+        },
+        "name": {
+          "type": "string",
+          "required": true,
+          "description": "数据名称"
+        },
+        "value": {
+          "type": "float",
+          "required": true,
+          "description": "数据值"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "datetime",
+          "required": false,
+          "description": "时间戳"
+        }
+      },
+      "_metadata": {
+        "created_at": "2026-03-29T00:00:00Z",
+        "semver": "1.0.0",
+        "status": "active"
+      }
+    },
+    "vscode_extension_schema": {
+      "name": "vscode_extension_schema",
+      "version": "1.0.0",
+      "description": "VSCodium 扩展配置 Schema",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "version": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "required": true
+        },
+        "main": {
+          "type": "string",
+          "required": true
+        },
+        "activationEvents": {
+          "type": "array",
+          "required": true
+        }
+      },
+      "_metadata": {
+        "created_at": "2026-03-29T00:00:00Z",
+        "semver": "1.0.0",
+        "status": "active"
+      }
+    }
+  },
+  "registry_stats": {
+    "total_schemas": 2,
+    "active_schemas": 2,
+    "last_updated": "2026-03-29T00:00:00Z"
+  }
+}
