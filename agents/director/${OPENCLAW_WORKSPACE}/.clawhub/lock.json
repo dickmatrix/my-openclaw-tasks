@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "xiucheng-self-improving-agent": {
+      "version": "1.0.0",
+      "installedAt": 1775152621342
+    },
+    "self-improving": {
+      "version": "1.2.16",
+      "installedAt": 1775152627954
+    },
+    "agent-browser-clawdbot": {
+      "version": "0.1.0",
+      "installedAt": 1775152631065
+    },
+    "ontology": {
+      "version": "1.0.4",
+      "installedAt": 1775152633807
+    },
+    "self-evolving": {
+      "version": "1.0.0",
+      "installedAt": 1775152681660
+    }
+  }
+}

@@ -1,0 +1,81 @@
+# AI 游戏资产生成任务配置
+# 用途：定义批量生成任务，用于 --config 参数
+
+{
+  "tasks": [
+    {
+      "name": "RPG武器图标",
+      "preset": "pixel_art_icon",
+      "subjects": [
+        "sword", "axe", "bow", "staff", "dagger", 
+        "shield", "mace", "spear", "wand", "hammer",
+        "scythe", "flail", "halberd", "lance", "crossbow"
+      ],
+      "count_per_subject": 4,
+      "notes": "像素风格，16-bit RPG风格，透明背景"
+    },
+    {
+      "name": "药水/道具图标",
+      "preset": "pixel_art_icon",
+      "subjects": [
+        "health potion", "mana potion", "speed potion", 
+        "strength potion", "poison flask", "elixir",
+        "antidote", "stamina drink", "invisibility potion",
+        "fire resistance potion", "ice shard", "crystal shard"
+      ],
+      "count_per_subject": 3,
+      "notes": "药水风格，发光效果，RPG游戏道具"
+    },
+    {
+      "name": "装备图标",
+      "preset": "pixel_art_icon",
+      "subjects": [
+        "helmet", "chestplate", "gauntlets", "boots",
+        "cloak", "ring", "amulet", "belt", "bracers",
+        "greaves", "pauldrons", "vambraces"
+      ],
+      "count_per_subject": 3,
+      "notes": "装备风格，金属/皮甲材质感"
+    },
+    {
+      "name": "UI界面元素",
+      "preset": "ui_element",
+      "subjects": [
+        "health bar", "mana bar", "XP bar", "button gold",
+        "button silver", "frame ornate", "corner decoration",
+        "divider line", "checkbox empty", "checkbox checked"
+      ],
+      "count_per_subject": 2,
+      "notes": "游戏UI风格，现代扁平设计"
+    },
+    {
+      "name": "环境道具",
+      "preset": "pixel_art_icon",
+      "subjects": [
+        "chest", "key", "gem", "coin pile", "scroll",
+        "book", "crown", "skull", "crystal", "orb",
+        "banner", "flag", "torch", "lantern"
+      ],
+      "count_per_subject": 3,
+      "notes": "场景道具，适合作为奖励/收集品"
+    },
+    {
+      "name": "怪物/生物",
+      "preset": "character_art",
+      "subjects": [
+        "slime", "goblin", "skeleton", "wolf",
+        "spider", "snake", "bat", "ghost",
+        "skeleton warrior", "zombie", "orc"
+      ],
+      "count_per_subject": 2,
+      "notes": "俯视角度游戏角色，战斗状态"
+    }
+  ],
+  
+  "global_settings": {
+    "output_dir": "./output_assets",
+    "auto_save": true,
+    "delay_between_requests": 0.5,
+    "generate_report": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "executor",
+  "name": "项目执行员_Executor",
+  "channel_type": "discord",
+  "account_ref": "discord_executor",
+  "agentDir": "./agents/executor",
+  "system_prompt_path": "./agents/executor/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.1,
+    "max_tokens": 2500
+  },
+  "discord_config": {
+    "bot_id": "1484929595336687810",
+    "account_id": "discord_executor"
+  }
+}

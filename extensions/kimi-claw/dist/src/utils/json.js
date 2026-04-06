@@ -1,0 +1,1 @@
+import{asTrimmedNonEmptyString}from"./text.js";export const isRecord=r=>"object"==typeof r&&null!==r;export const isPlainRecord=r=>isRecord(r)&&!Array.isArray(r);export const asRpcId=r=>asTrimmedNonEmptyString(r)||("number"==typeof r&&Number.isFinite(r)?String(r):void 0);

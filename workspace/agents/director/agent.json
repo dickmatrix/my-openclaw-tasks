@@ -1,0 +1,17 @@
+{
+  "id": "director",
+  "name": "大肥助手_Director",
+  "channel_type": "discord",
+  "account_ref": "da_fei_assistant",
+  "agentDir": "./agents/director",
+  "system_prompt_path": "./agents/director/system_prompt.md",
+  "tools": ["sessions_spawn", "messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 1500
+  },
+  "discord_config": {
+    "bot_id": "1484805507268087828",
+    "account_id": "da_fei_assistant"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "worker-doc",
+  "name": "Worker_Doc",
+  "agentDir": "./agents/worker-doc",
+  "system_prompt_path": "./agents/worker-doc/system_prompt.md",
+  "tools": ["file_write", "markdown_format", "file_stitcher", "translator"],
+  "options": {
+    "model": "moonshot/kimi-k2.5",
+    "temperature": 0.8,
+    "max_tokens": 2000
+  },
+  "knowledgeBase": {
+    "foreignTradeTemplates": "./agents/worker-doc/memory/foreign_trade_templates.md",
+    "sciFiWorldSettings": "./agents/worker-doc/memory/scifi_world_settings.md",
+    "sopDocuments": "./agents/worker-doc/memory/sop_documents.md"
+  },
+  "skills": {
+    "fileStitcher": "./agents/worker-doc/skills/file_stitcher.py",
+    "translator": "./agents/worker-doc/skills/translator.py",
+    "templateGenerator": "./agents/worker-doc/skills/template_generator.py"
+  },
+  "parent": "kakashi-controller"
+}

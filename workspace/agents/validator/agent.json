@@ -1,0 +1,17 @@
+{
+  "id": "validator",
+  "name": "验证员_Validator",
+  "channel_type": "discord",
+  "account_ref": "discord_validator",
+  "agentDir": "./agents/validator",
+  "system_prompt_path": "./agents/validator/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 2000
+  },
+  "discord_config": {
+    "bot_id": "1484926477115068546",
+    "account_id": "discord_validator"
+  }
+}

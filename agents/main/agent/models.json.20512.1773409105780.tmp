@@ -1,0 +1,459 @@
+{
+  "providers": {
+    "moonshot": {
+      "baseUrl": "https://api.moonshot.cn/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi-K2.5",
+          "contextWindow": 256000,
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        }
+      ],
+      "apiKey": "MOONSHOT_API_KEY"
+    },
+    "kimi-coding": {
+      "baseUrl": "https://api.kimi.com/coding/",
+      "api": "anthropic-messages",
+      "headers": {
+        "User-Agent": "claude-code/0.1.0"
+      },
+      "models": [
+        {
+          "id": "k2p5",
+          "name": "Kimi for Coding",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        }
+      ],
+      "apiKey": "sk-kimi-w5u3TcQAZfg2vLDt2E9hNwgAaEKfG7ynIGM4bkPMeH3A7N3X58kwuPZWiKzaiiQz"
+    },
+    "zai": {
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "apiKey": "5c16153f326b469698e9024d2c1f8de1.hadBD1ZGq8UAmyTg",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-4.7-flash",
+          "name": "GLM4.7-Flash",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 204800,
+          "maxTokens": 65536,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "doubao": {
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "apiKey": "ff7db7cd-8478-4a01-8eee-c16e8dc41024",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "ep-m-20260308182617-8bcrj",
+          "name": "DeepSeek-V3",
+          "contextWindow": 128000,
+          "maxTokens": 4096,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "google": {
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "gemini-2.0-flash",
+          "name": "Gemini 2.0 Flash",
+          "api": "openai-completions",
+          "reasoning": false,
+          "contextWindow": 1000000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "openrouter": {
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "meta-llama/llama-3.3-70b-instruct:free",
+          "name": "Llama 3.3 70B (Free)",
+          "api": "openai-completions",
+          "reasoning": false,
+          "contextWindow": 131072,
+          "maxTokens": 4096,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "minimax": {
+      "baseUrl": "https://api.minimax.io/anthropic",
+      "api": "anthropic-messages",
+      "authHeader": true,
+      "models": [
+        {
+          "id": "MiniMax-VL-01",
+          "name": "MiniMax VL 01",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        },
+        {
+          "id": "MiniMax-M2.5-highspeed",
+          "name": "MiniMax M2.5 Highspeed",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        }
+      ],
+      "apiKey": "sk-api-Tniugx9djq1edKG7hJOXNRfxxSdi4sEFSus7TopvJnpy3kC_l_-pVVaSbogtUKQGtfWnT9Th7Pk16O43BlCxwn4ukuvKcqfCzHi6DT-WZ02Uzw2oatdl9yI"
+    },
+    "zhipu": {
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "apiKey": "5c16153f326b469698e9024d2c1f8de1.hadBD1ZGq8UAmyTg",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-4",
+          "name": "GLM-4",
+          "contextWindow": 128000,
+          "maxTokens": 4096,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "volc-engine": {
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "apiKey": "VOLC_API_KEY",
+      "api": "openai-responses",
+      "models": [
+        {
+          "id": "填写R1满血版接入点ID",
+          "name": "DeepSeek-R1-Volc",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "openai-responses"
+        },
+        {
+          "id": "填写Doubao-Seed-2.0-pro接入点ID",
+          "name": "Doubao-Seed-2.0-Pro-Sub",
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192,
+          "api": "openai-responses"
+        }
+      ]
+    },
+    "national-team": {
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "apiKey": "ALIYUN_API_KEY",
+      "api": "openai-responses",
+      "models": [
+        {
+          "id": "qwen3-235b-a22b",
+          "name": "Qwen3-Super-Main",
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192,
+          "api": "openai-responses"
+        }
+      ]
+    },
+    "minimax-portal": {
+      "baseUrl": "https://api.minimax.io/anthropic",
+      "api": "anthropic-messages",
+      "authHeader": true,
+      "models": [
+        {
+          "id": "MiniMax-VL-01",
+          "name": "MiniMax VL 01",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        },
+        {
+          "id": "MiniMax-M2.5-highspeed",
+          "name": "MiniMax M2.5 Highspeed",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        }
+      ],
+      "apiKey": "minimax-oauth"
+    },
+    "plato-ai": {
+      "baseUrl": "https://api.bltcy.ai/v1",
+      "apiKey": "sk-pRWpjV7k5ONKgY3wimC60b7uLLkTPj9Rd9EEmFbesb7l5qxK",
+      "api": "openai-responses",
+      "models": [
+        {
+          "id": "gpt-4o-mini",
+          "name": "GPT-4o-Mini-Fast",
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192,
+          "api": "openai-responses"
+        },
+        {
+          "id": "claude-opus-4-6",
+          "name": "Claude-Opus-4.6-Plato",
+          "contextWindow": 200000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192,
+          "api": "openai-responses"
+        }
+      ]
+    },
+    "deepseek-official": {
+      "baseUrl": "https://api.deepseek.com/v1",
+      "apiKey": "sk-bcac425424f24ca8bc1f89daa0157b6f",
+      "api": "openai-responses",
+      "models": [
+        {
+          "id": "deepseek-reasoner",
+          "name": "DeepSeek-R1",
+          "reasoning": true,
+          "contextWindow": 64000,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192,
+          "api": "openai-responses"
+        },
+        {
+          "id": "deepseek-chat",
+          "name": "DeepSeek-V3",
+          "contextWindow": 64000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192,
+          "api": "openai-responses"
+        }
+      ]
+    },
+    "zhipu-ai": {
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "apiKey": "5c16153f326b469698e9024d2c1f8de1.hadBD1ZGq8UAmyTg",
+      "api": "openai-responses",
+      "models": [
+        {
+          "id": "glm-4.7-flash",
+          "name": "GLM-4.7-Flash",
+          "contextWindow": 200000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192,
+          "api": "openai-responses"
+        }
+      ]
+    }
+  }
+}

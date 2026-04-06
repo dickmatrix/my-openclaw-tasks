@@ -1,0 +1,135 @@
+# 飞书卡片防卡死配置
+# 用于防止飞书卡片渲染导致的Gateway卡死
+
+feishu:
+  # 卡片配置
+  card:
+    # 卡片渲染超时（毫秒）
+    # 如果卡片渲染超过此时间，将被中止
+    render_timeout: 5000
+    
+    # 卡片大小限制（字节）
+    # 飞书API限制单个卡片不超过65KB
+    max_size: 65536
+    
+    # 卡片元素限制
+    # 防止过多元素导致渲染缓慢
+    max_elements: 100
+    
+    # 卡片嵌套深度限制
+    # 防止过深的嵌套导致性能问题
+    max_depth: 10
+    
+    # 卡片缓存时间（秒）
+    # 相同内容的卡片可以缓存以提高性能
+    cache_ttl: 300
+  
+  # 消息配置
+  message:
+    # 消息发送超时（秒）
+    send_timeout: 10
+    
+    # 消息队列大小
+    # 防止内存溢出
+    queue_size: 1000
+    
+    # 并发发送数
+    # 同时发送的最大消息数
+    concurrent_sends: 5
+    
+    # 速率限制（消息/秒）
+    # 飞书API限制约20条消息/秒
+    rate_limit: 20
+    
+    # 消息重试次数
+    max_retries: 3
+    
+    # 重试延迟（秒）
+    retry_delay: 1
+  
+  # Webhook配置
+  webhook:
+    # Webhook 处理超时（秒）
+    timeout: 30
+    
+    # Webhook 重试次数
+    max_retries: 3
+    
+    # Webhook 重试延迟（秒）
+    retry_delay: 1
+    
+    # Webhook 队列大小
+    queue_size: 500
+  
+  # 连接池配置
+  connection:
+    # 最大连接数
+    max_connections: 100
+    
+    # 连接超时（秒）
+    timeout: 10
+    
+    # 连接保活间隔（秒）
+    keepalive_interval: 30
+  
+  # 监控配置
+  monitoring:
+    # 启用性能监控
+    enabled: true
+    
+    # 监控间隔（秒）
+    interval: 60
+    
+    # 告警阈值
+    thresholds:
+      # CPU占用告警阈值（%）
+      cpu_usage: 80
+      
+      # 内存占用告警阈值（%）
+      memory_usage: 80
+      
+      # 消息队列长度告警阈值
+      queue_length: 500
+      
+      # 错误率告警阈值（%）
+      error_rate: 5
+      
+      # 响应时间告警阈值（秒）
+      response_time: 5
+
+# 日志配置
+logging:
+  # 日志级别: DEBUG, INFO, WARNING, ERROR
+  level: INFO
+  
+  # 日志文件路径
+  file: /Users/mac/.openclaw/logs/feishu_card.log
+  
+  # 日志文件大小限制（MB）
+  max_size: 100
+  
+  # 保留日志文件数
+  backup_count: 10
+  
+  # 日志格式
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# 性能优化
+optimization:
+  # 启用卡片压缩
+  enable_compression: true
+  
+  # 启用卡片缓存
+  enable_cache: true
+  
+  # 启用连接复用
+  enable_connection_reuse: true
+  
+  # 启用批量发送
+  enable_batch_send: true
+  
+  # 批量发送大小
+  batch_size: 10
+  
+  # 批量发送超时（秒）
+  batch_timeout: 5

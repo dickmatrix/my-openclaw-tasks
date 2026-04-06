@@ -1,0 +1,11 @@
+{
+  "id": "executor",
+  "name": "Executor_Ops",
+  "agentDir": "./agents/executor",
+  "system_prompt_path": "./agents/executor/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.1,
+    "max_tokens": 2500
+  }
+}

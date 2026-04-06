@@ -1,0 +1,17 @@
+{
+  "id": "creative",
+  "name": "发散引擎_Creative",
+  "channel_type": "discord",
+  "account_ref": "discord_creative",
+  "agentDir": "./agents/creative",
+  "system_prompt_path": "./agents/creative/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.9,
+    "max_tokens": 3000
+  },
+  "discord_config": {
+    "bot_id": "1484930189321306233",
+    "account_id": "discord_creative"
+  }
+}

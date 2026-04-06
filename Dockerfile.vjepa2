@@ -1,0 +1,35 @@
+FROM --platform=linux/amd64 pytorch/pytorch:2.4.1-cuda12.1-cudnn9-runtime
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    TORCH_HOME=/workspace/weights/.torch
+
+RUN apt-get update -o Acquire::Retries=8 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 && \
+    apt-get install -y --no-install-recommends \
+    git \
+    curl \
+    ca-certificates \
+    ffmpeg \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender1 && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt
+RUN git clone --depth=1 https://github.com/facebookresearch/vjepa2.git
+
+WORKDIR /opt/vjepa2
+RUN python -m pip install --upgrade pip setuptools wheel && \
+    python -m pip install -r requirements.txt
+
+RUN groupadd --gid 1000 vjepa && \
+    useradd --uid 1000 --gid 1000 --create-home --shell /bin/bash vjepa && \
+    mkdir -p /workspace/input /workspace/output /workspace/weights && \
+    chown -R vjepa:vjepa /workspace /opt/vjepa2
+
+USER vjepa
+WORKDIR /workspace
+
+CMD ["bash"]

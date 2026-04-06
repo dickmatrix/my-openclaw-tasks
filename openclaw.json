@@ -556,8 +556,7 @@
         "apiKey": "${GITHUB_TOKEN}"
       },
       "goplaces": {
-        "enabled": false,
-        "apiKey": "${GOOGLE_PLACES_API_KEY}"
+        "enabled": false
       },
       "notion": {
         "enabled": false,
@@ -572,8 +571,7 @@
         "apiKey": "${OPENAI_API_KEY}"
       },
       "sag": {
-        "enabled": false,
-        "apiKey": "${ELEVENLABS_API_KEY}"
+        "enabled": false
       },
       "xurl": {
         "enabled": false

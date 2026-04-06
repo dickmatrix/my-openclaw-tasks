@@ -1,0 +1,12 @@
+services:
+  openclaw:
+    user: "node"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=512m
+      - /home/node/.openclaw:rw,nosuid,size=256m
+      - /home/node/.npm:rw,nosuid,size=256m

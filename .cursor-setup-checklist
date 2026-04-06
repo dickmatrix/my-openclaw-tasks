@@ -1,0 +1,47 @@
+# Cursor 优化设置检查清单
+
+## ✅ 已完成
+
+- [x] 创建 .cursorrules (项目规则)
+- [x] 创建 .cursorignore (索引过滤)
+- [x] 创建 CURSOR_OPTIMIZATION.md (配置指南)
+- [x] 创建 HEARTBEAT.md (定期检查)
+- [x] 创建 MEMORY.md (长期记忆)
+- [x] 创建 memory/2026-03-29.md (每日日志)
+- [x] 创建 scripts/cursor-daily-check.sh (自动化脚本)
+- [x] 创建 CURSOR_SETUP_COMPLETE.md (完成报告)
+- [x] 创建 CURSOR_QUICK_REFERENCE.md (快速参考)
+- [x] 创建 memory/heartbeat-state.json (状态追踪)
+
+## 🚀 立即执行
+
+1. [ ] 运行: Cmd+Shift+J (重新索引)
+2. [ ] 验证: ls -la .cursorrules .cursorignore
+3. [ ] 测试: bash scripts/cursor-daily-check.sh
+4. [ ] 阅读: CURSOR_QUICK_REFERENCE.md
+
+## 📅 每日任务
+
+- [ ] 早上: 运行 cursor-daily-check.sh
+- [ ] 工作中: 使用 @Files 精准引用
+- [ ] 完成功能: Cmd+N 创建新 Chat
+- [ ] 晚上: 更新 memory/YYYY-MM-DD.md
+
+## 📊 每周任务 (周一)
+
+- [ ] 回顾 memory/ 中的日志
+- [ ] 分析成本数据
+- [ ] 更新 MEMORY.md
+- [ ] 调整模型分级策略
+
+## 📈 每月任务 (1 号)
+
+- [ ] 分析成本趋势
+- [ ] 审视 .cursorrules
+- [ ] 更新 CURSOR_OPTIMIZATION.md
+- [ ] 记录关键经验教训
+
+---
+
+**创建时间:** 2026-03-29
+**下次检查:** 2026-03-30

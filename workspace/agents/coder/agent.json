@@ -1,0 +1,17 @@
+{
+  "id": "coder",
+  "name": "程序员_Coder",
+  "channel_type": "discord",
+  "account_ref": "discord_coder",
+  "agentDir": "./agents/coder",
+  "system_prompt_path": "./agents/coder/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.1,
+    "max_tokens": 4000
+  },
+  "discord_config": {
+    "bot_id": "1484925779119706293",
+    "account_id": "discord_coder"
+  }
+}

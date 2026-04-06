@@ -1,0 +1,22 @@
+{
+  "feishu_bots": [
+    {
+      "name": "Scout",
+      "app_id": "cli_xxxxxxxx",
+      "app_secret": "YOUR_APP_SECRET",
+      "role": "侦察员",
+      "commands": ["scan", "analyze", "report"],
+      "status": "pending"
+    }
+  ],
+  "gateway": {
+    "url": "http://127.0.0.1:18889",
+    "token": "YOUR_GATEWAY_TOKEN",
+    "status": "checking"
+  },
+  "webhook": {
+    "enabled": true,
+    "path": "/feishu/webhook",
+    "timeout": 30000
+  }
+}

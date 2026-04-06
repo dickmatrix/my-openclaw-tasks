@@ -21,3 +21,33 @@ node_modules/
 # Config backups (avoid leaking old keys)
 openclaw.json.bak*
 openclaw.json.backup*
+
+# Feishu — real config has app_secret (use feishu_bot_config.json.example + copy)
+feishu_bot_config.json
+
+# Pasted API keys / PATs (local only)
+agents/director/inbox/credentials.md
+
+# Local KB / notes pasted real secrets (keep only on disk)
+agents/auditor/本地ide集群知识库/
+agents/映射关系.md
+
+# Agent session logs (may contain API content)
+agents/main/sessions/
+agents/director/sessions/
+agents/main-agent/sessions/
+
+# Personal notes (AGENTS.md: do not leak to strangers)
+/MEMORY.md
+/memory/
+agents/**/MEMORY.md
+**/MEMORY.md
+
+# Local proxy / network (often RTF + huge; may contain nodes)
+huayun.yaml
+
+# Generated outputs
+output/
+
+# IDE (optional)
+.vscode/

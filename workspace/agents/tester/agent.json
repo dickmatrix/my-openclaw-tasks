@@ -1,0 +1,17 @@
+{
+  "id": "tester",
+  "name": "测试员_Tester",
+  "channel_type": "discord",
+  "account_ref": "discord_tester",
+  "agentDir": "./agents/tester",
+  "system_prompt_path": "./agents/tester/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 2000
+  },
+  "discord_config": {
+    "bot_id": "1484928815317909534",
+    "account_id": "discord_tester"
+  }
+}

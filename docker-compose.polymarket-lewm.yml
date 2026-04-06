@@ -1,0 +1,27 @@
+services:
+  polymarket-lewm:
+    build:
+      context: ./polymarket_lewm_nonvision
+      dockerfile: Dockerfile
+    image: polymarket-lewm:latest
+    container_name: polymarket-lewm
+    user: "10001:10001"
+    read_only: false
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    ports:
+      - "127.0.0.1:8765:8765"
+    environment:
+      PYTHONPATH: /workspace/src
+      POLYMARKET_EVENT_LIMIT: ${POLYMARKET_EVENT_LIMIT:-50}
+    volumes:
+      - ./polymarket_lewm_nonvision/input:/workspace/input:ro
+      - ./polymarket_lewm_nonvision/output:/workspace/output:rw
+      - ./polymarket_lewm_nonvision/data:/workspace/data:rw
+      - ./polymarket_lewm_nonvision/weights:/workspace/weights:rw
+    tmpfs:
+      - /tmp:size=512m,mode=1777
+    restart: "no"
+    command: ["python", "-c", "import time; print('polymarket-lewm ready'); time.sleep(31536000)"]

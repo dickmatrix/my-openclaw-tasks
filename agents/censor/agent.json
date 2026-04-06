@@ -1,0 +1,11 @@
+{
+  "id": "censor",
+  "name": "Censor_Guard",
+  "agentDir": "./agents/censor",
+  "system_prompt_path": "./agents/censor/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 1500
+  }
+}

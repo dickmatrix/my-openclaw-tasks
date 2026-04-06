@@ -1,0 +1,62 @@
+# Cursor Rules - my_openclaw Project (v2.0 - Optimized)
+
+## Project Context
+- **Project:** OpenClaw - AI Agent Orchestration Platform
+- **Primary Language:** Go, Python, TypeScript
+- **Architecture:** Microservices with Agent Collaboration
+- **Tech Stack:** Docker, Kubernetes, PostgreSQL, Redis, Discord/Feishu APIs
+
+## Code Style & Patterns
+
+### Go
+- Use interfaces for abstraction
+- Error handling: explicit checks, no panic in production
+- Naming: CamelCase for exported, snake_case for internal
+- No comments unless logic is non-obvious
+- Prefer composition over inheritance
+
+### Python
+- Type hints required for all functions
+- Docstrings for public APIs only
+- Use dataclasses for data structures
+- Follow PEP 8 strictly
+
+### TypeScript
+- Functional components with hooks
+- Strict mode enabled
+- No `any` types
+- Explicit return types
+
+## Output Rules
+- **Code first:** Provide working code, minimal explanation
+- **No boilerplate:** Skip obvious comments and scaffolding
+- **Context-aware:** Reference existing patterns in codebase
+- **Efficiency:** Reduce token usage by being precise
+- **Minimal code:** Write only what's necessary, avoid verbose implementations
+
+## File Organization
+- Source: `openclaw_core/`, `agents/`, `services/`
+- Tests: `*_test.go`, `*_test.py`, `*.test.ts`
+- Docs: `docs/`, `README.md` in each module
+- Config: `.env`, `.openclawrc.json`
+
+## Context Control (Efficiency First)
+- **@Files:** Use for specific file references only
+- **@Docs:** Reference official API docs (e.g., https://kubernetes.io/docs)
+- **@Git:** For diff-based fixes and commit analysis
+- **NEVER use @Codebase:** Causes token bloat and context pollution
+- **Use .cursorignore:** Filters node_modules, dist, logs, etc. (see .cursorignore)
+
+## Token Management Strategy
+- **High-complexity tasks:** Claude-3.5-Sonnet or GPT-4o
+- **Regular tasks:** Cursor-small or Claude-3-Haiku
+- **Long conversations:** Create new chat (Cmd+N) after 50+ messages
+- **Context cleaning:** Delete irrelevant code snippets from chat history
+- **Rescan indexing:** Ctrl+Shift+J → Settings → General → Indexing → Rescan
+
+## Quality Gates
+- All code must pass linting before commit
+- Tests required for new features
+- Documentation updated alongside code
+- No hardcoded secrets or credentials
+- Use `trash` instead of `rm` for safety

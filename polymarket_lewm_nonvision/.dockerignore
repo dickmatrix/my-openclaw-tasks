@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.git/
+.gitignore
+.env
+.venv/
+venv/
+output/
+data/
+weights/*.pt
+weights/*.ckpt
+vendor/LeWorldModel/.git/

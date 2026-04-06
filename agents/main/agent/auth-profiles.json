@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "profiles": {
+    "volcengine:default": {
+      "type": "api_key",
+      "provider": "volcengine",
+      "key": "ff7db7cd-8478-4a01-8eee-c16e8dc41024"
+    },
+    "kimi-coding:default": {
+      "type": "api_key",
+      "provider": "kimi-coding",
+      "key": "sk-kimi-w5u3TcQAZfg2vLDt2E9hNwgAaEKfG7ynIGM4bkPMeH3A7N3X58kwuPZWiKzaiiQz"
+    }
+  },
+  "usageStats": {
+    "volcengine:default": {
+      "errorCount": 0,
+      "lastUsed": 1773110576605
+    },
+    "kimi-coding:default": {
+      "errorCount": 0,
+      "lastUsed": 1773296623712
+    }
+  }
+}

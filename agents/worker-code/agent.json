@@ -1,0 +1,22 @@
+{
+  "id": "worker-code",
+  "name": "Worker_Code",
+  "agentDir": "./agents/worker-code",
+  "system_prompt_path": "./agents/worker-code/system_prompt.md",
+  "tools": ["python_exec", "terminal", "docker_client", "git_operator"],
+  "options": {
+    "model": "nscc-qwen-1/Qwen3-235B-A22B",
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "knowledgeBase": {
+    "pep8Standards": "./agents/worker-code/memory/pep8_guidelines.md",
+    "openclawArchitecture": "./agents/worker-code/memory/openclaw_architecture.md"
+  },
+  "skills": {
+    "codeInterpreter": "./agents/worker-code/skills/code_interpreter.py",
+    "gitOperator": "./agents/worker-code/skills/git_operator.py",
+    "dockerClient": "./agents/worker-code/skills/docker_client.py"
+  },
+  "parent": "kakashi-controller"
+}

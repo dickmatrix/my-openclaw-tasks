@@ -1,0 +1,17 @@
+{
+  "id": "architect",
+  "name": "架构师_Architect",
+  "channel_type": "discord",
+  "account_ref": "discord_architect",
+  "agentDir": "./agents/architect",
+  "system_prompt_path": "./agents/architect/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 2000
+  },
+  "discord_config": {
+    "bot_id": "1484923099857027164",
+    "account_id": "discord_architect"
+  }
+}

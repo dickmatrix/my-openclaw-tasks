@@ -1,0 +1,1 @@
+const LOG_PREFIX="[kimi-bridge]";export const buildLogger=(r,$)=>({info:$=>r.info(`${LOG_PREFIX} ${$}`),warn:$=>r.warn(`${LOG_PREFIX} ${$}`),error:$=>r.error(`${LOG_PREFIX} ${$}`),debug:o=>{$&&(r.debug?r.debug(`${LOG_PREFIX} ${o}`):r.info(`${LOG_PREFIX} ${o}`))}});

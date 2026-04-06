@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "skills": {
+    "hybrid-memory": {
+      "version": "1.0.1",
+      "installedAt": 1775390802240
+    },
+    "business-process-audit": {
+      "version": "1.0.0",
+      "installedAt": 1775398557487
+    },
+    "automation-workflows": {
+      "version": "0.1.0",
+      "installedAt": 1775398565634
+    },
+    "workflow-decomposer": {
+      "version": "1.0.0",
+      "installedAt": 1775398619627
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "director",
+  "name": "大肥助手_Director",
+  "channel_type": "feishu",
+  "account_ref": "da_jie_tou_win",
+  "agentDir": "./agents/director",
+  "system_prompt_path": "./agents/director/system_prompt.md",
+  "tools": ["filesystem", "python_interpreter", "web_search", "sessions_spawn", "messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 4000
+  }
+}

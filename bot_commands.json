@@ -1,0 +1,84 @@
+{
+  "commands": [
+    {
+      "bot": "Scout",
+      "commands": [
+        {
+          "name": "scan",
+          "description": "扫描工作区",
+          "usage": "@Scout 扫描 /path/to/workspace"
+        },
+        {
+          "name": "analyze",
+          "description": "分析代码",
+          "usage": "@Scout 分析 /path/to/file"
+        },
+        {
+          "name": "report",
+          "description": "生成报告",
+          "usage": "@Scout 报告"
+        }
+      ]
+    },
+    {
+      "bot": "Censor",
+      "commands": [
+        {
+          "name": "verify",
+          "description": "验证安全性",
+          "usage": "@Censor 验证"
+        },
+        {
+          "name": "check",
+          "description": "检查合规性",
+          "usage": "@Censor 检查"
+        },
+        {
+          "name": "validate",
+          "description": "验证配置",
+          "usage": "@Censor 验证配置"
+        }
+      ]
+    },
+    {
+      "bot": "Writer",
+      "commands": [
+        {
+          "name": "modify",
+          "description": "修改代码",
+          "usage": "@Writer 修改 /path/to/file"
+        },
+        {
+          "name": "optimize",
+          "description": "优化代码",
+          "usage": "@Writer 优化 /path/to/file"
+        },
+        {
+          "name": "refactor",
+          "description": "重构代码",
+          "usage": "@Writer 重构 /path/to/file"
+        }
+      ]
+    },
+    {
+      "bot": "Auditor",
+      "commands": [
+        {
+          "name": "audit",
+          "description": "审计代码",
+          "usage": "@Auditor 审计"
+        },
+        {
+          "name": "test",
+          "description": "运行测试",
+          "usage": "@Auditor 测试"
+        },
+        {
+          "name": "verify",
+          "description": "验证结果",
+          "usage": "@Auditor 验证"
+        }
+      ]
+    }
+  ]
+}

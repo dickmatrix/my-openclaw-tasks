@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-21T04:12:00.000Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-21T04:12:00.000Z",
+    "lastRunVersion": "2026.3.12",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "ollama": {
+        "provider": "openai",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "mode": "override",
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://host.docker.internal:11434/v1",
+        "apiKey": "ollama",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen2.5:7b",
+            "name": "Qwen2.5-7B-Local",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 8192,
+            "maxTokens": 2048
+          },
+          {
+            "id": "nomic-embed-text:latest",
+            "name": "Nomic-Embed",
+            "api": "openai-completions",
+            "contextWindow": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "ollama/qwen2.5:7b",
+        "fallbacks": []
+      },
+      "workspace": "${OPENCLAW_WORKSPACE}",
+      "memorySearch": {
+        "enabled": true,
+        "provider": "ollama",
+        "model": "nomic-embed-text:latest"
+      },
+      "compaction": {
+        "mode": "off"
+      },
+      "thinkingDefault": "low",
+      "verboseDefault": "off",
+      "maxConcurrent": 2,
+      "subagents": {
+        "maxConcurrent": 1,
+        "model": "ollama/qwen2.5:7b"
+      },
+      "sandbox": {
+        "mode": "off"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "description": "Default local assistant executing direct requests.",
+        "model": {
+          "primary": "ollama/qwen2.5:7b"
+        }
+      }
+    ]
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "useWebSocket": true,
+      "appId": "${FEISHU_MAC_APP_ID}",
+      "appSecret": "${FEISHU_MAC_APP_SECRET}"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "0.0.0.0",
+    "controlUi": {
+      "allowedOrigins": [
+        "http://localhost:18789",
+        "http://127.0.0.1:18789"
+      ]
+    },
+    "auth": {
+      "mode": "token",
+      "token": "123456"
+    }
+  },
+  "skills": {
+    "entries": {}
+  },
+  "plugins": {
+    "allow": [
+      "feishu",
+      "memory-lancedb"
+    ],
+    "slots": {
+      "memory": "memory-lancedb"
+    },
+    "entries": {
+      "feishu": {
+        "enabled": true
+      },
+      "memory-lancedb": {
+        "enabled": true,
+        "config": {
+          "embedding": {
+            "apiKey": "ollama",
+            "model": "nomic-embed-text:latest",
+            "baseUrl": "http://host.docker.internal:11434/v1",
+            "dimensions": 768
+          },
+          "autoCapture": true,
+          "autoRecall": true,
+          "captureMaxChars": 500
+        }
+      }
+    }
+  }
+}

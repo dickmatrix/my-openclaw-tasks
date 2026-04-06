@@ -1,0 +1,40 @@
+{
+  "id": "writer",
+  "name": "Writer_FullStack_Engineer",
+  "agentDir": "./agents/writer",
+  "system_prompt_path": "./agents/writer/system_prompt.md",
+  "tools": ["filesystem", "messaging", "bash", "python_interpreter"],
+  "skills": [
+    "./agents/writer/skills/kb_query.py",
+    "./agents/writer/skills/iterate.py",
+    "./agents/writer/skills/bypass_scraper.py",
+    "./agents/writer/skills/self-improving-1.2.10/SKILL.md",
+    "./agents/writer/skills/reflection-1.1.0/SKILL.md",
+    "./agents/writer/skills/evolver-1.27.3/SKILL.md",
+    "./agents/writer/skills/autonomous-tasks-10.3.1/SKILL.md"
+  ],
+  "knowledge_base": {
+    "path": "./agents/writer/knowledge-base",
+    "auto_index": true,
+    "index_on_start": true
+  },
+  "cron": [
+    {
+      "schedule": "0 * * * *",
+      "command": "python3 /app/agents/writer/run_iteration.py",
+      "description": "1小时自动迭代循环"
+    }
+  ],
+  "options": {
+    "temperature": 0.2,
+    "max_tokens": 8000
+  },
+  "scraper_config": {
+    "api_key_env": "SCRAPER_API_KEY",
+    "api_endpoint_env": "SCRAPER_API_ENDPOINT",
+    "timeout_seconds": 60,
+    "max_retries": 3,
+    "fallback_mode": "browser",
+    "ua_pool_size": 5
+  }
+}

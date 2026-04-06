@@ -1,0 +1,13 @@
+{
+  "id": "creative",
+  "name": "Creative_Brainstorm",
+  "channel_type": "discord",
+  "account_ref": "creative",
+  "agentDir": "./agents/creative",
+  "system_prompt_path": "./agents/creative/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.9,
+    "max_tokens": 3000
+  }
+}

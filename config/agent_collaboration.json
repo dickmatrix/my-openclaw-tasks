@@ -1,0 +1,173 @@
+{
+  "agent_collaboration": {
+    "version": "2.0.0",
+    "description": "Agent 联动优化配置",
+    "workflow": {
+      "phase1": {
+        "name": "情报获取与自愈",
+        "agents": ["scout", "censor"],
+        "description": "Scout 侦察 → Censor 验证"
+      },
+      "phase2": {
+        "name": "代码迭代",
+        "agents": ["censor", "writer"],
+        "description": "Censor 清洗 → Writer 注入"
+      },
+      "phase3": {
+        "name": "闭环验证",
+        "agents": ["writer", "auditor"],
+        "description": "Writer 提交 → Auditor 审计"
+      }
+    },
+    "agents": {
+      "scout": {
+        "role": "侦察员",
+        "responsibilities": [
+          "GitHub 访问与镜像切换",
+          "代码片段抓取",
+          "Schema 提取",
+          "原始数据收集"
+        ],
+        "commands": ["scan", "analyze", "report"],
+        "output": "Raw_Payload",
+        "next_agent": "censor"
+      },
+      "censor": {
+        "role": "合规检查员",
+        "responsibilities": [
+          "Schema 去重 (Jaccard > 0.8)",
+          "格式验证",
+          "冲突检测",
+          "代码生成"
+        ],
+        "commands": ["verify", "check", "validate"],
+        "input": "Raw_Payload",
+        "output": "Validated_Logic",
+        "next_agent": "writer"
+      },
+      "writer": {
+        "role": "代码改写员",
+        "responsibilities": [
+          "源码注入 (FS_Write)",
+          "版本更新 (SemVer)",
+          "Git 提交与推送",
+          "GitHub Actions 监控"
+        ],
+        "commands": ["modify", "optimize", "refactor"],
+        "input": "Validated_Logic",
+        "output": "Git Commit / .vsix",
+        "next_agent": "auditor"
+      },
+      "auditor": {
+        "role": "审计员",
+        "responsibilities": [
+          "沙箱安装测试",
+          "Benchmark 运行",
+          "效能得分计算",
+          "进化决策 (PROCEED/ROLLBACK)"
+        ],
+        "commands": ["audit", "test", "verify"],
+        "input": ".vsix 文件",
+        "output": "Benchmark_Report",
+        "metrics": {
+          "accuracy": "清洗正确率 ≥ 98%",
+          "time": "处理时间 (秒)",
+          "throughput": "吞吐量 (rows/sec)",
+          "memory_peak": "内存峰值 (MB)"
+        }
+      }
+    },
+    "github_integration": {
+      "schema_registry": {
+        "path": "schema_registry/",
+        "validation": {
+          "format": "JSON Schema",
+          "similarity_threshold": 0.8,
+          "jaccard_calculation": true
+        }
+      },
+      "ci_cd_pipeline": {
+        "trigger": "push to schema_registry/**",
+        "steps": [
+          "Schema 验证",
+          "构建 VSCodium 扩展",
+          "生成 .vsix 文件",
+          "创建 GitHub Release"
+        ]
+      },
+      "branch_protection": {
+        "rules": [
+          "需要至少 1 个审查",
+          "需要通过所有状态检查",
+          "禁止强制推送",
+          "要求分支最新"
+        ]
+      }
+    },
+    "feishu_integration": {
+      "gateway": {
+        "url": "http://127.0.0.1:18789",
+        "token_env": "GATEWAY_TOKEN",
+        "webhook_path": "/feishu/webhook"
+      },
+      "bots": {
+        "scout": {
+          "app_id_env": "FEISHU_SCOUT_APP_ID",
+          "app_secret_env": "FEISHU_SCOUT_APP_SECRET"
+        },
+        "censor": {
+          "app_id_env": "FEISHU_CENSOR_APP_ID",
+          "app_secret_env": "FEISHU_CENSOR_APP_SECRET"
+        },
+        "writer": {
+          "app_id_env": "FEISHU_WRITER_APP_ID",
+          "app_secret_env": "FEISHU_WRITER_APP_SECRET"
+        },
+        "auditor": {
+          "app_id_env": "FEISHU_AUDITOR_APP_ID",
+          "app_secret_env": "FEISHU_AUDITOR_APP_SECRET"
+        }
+      }
+    },
+    "performance_metrics": {
+      "evolution_formula": "P_success = Accuracy / Time",
+      "decision_criteria": {
+        "proceed": "P_success_new > P_success_old AND T_new ≤ T_old × 1.1",
+        "rollback": "P_success_new ≤ P_success_old OR T_new > T_old × 1.1"
+      },
+      "benchmark_dataset": "benchmark/cursor_vs_agent/",
+      "test_size": 1000,
+      "timeout": 300
+    },
+    "error_handling": {
+      "github_401": {
+        "action": "切换至 ghproxy.com 镜像",
+        "retry_count": 3
+      },
+      "github_timeout": {
+        "action": "使用备用搜索 API (Serper)",
+        "retry_count": 2
+      },
+      "build_failure": {
+        "action": "自动开启修复任务",
+        "notify": "Censor"
+      },
+      "benchmark_failure": {
+        "action": "执行 git revert HEAD",
+        "notify": "Writer"
+      }
+    },
+    "logging": {
+      "level": "INFO",
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+      "directory": "/Users/mac/.openclaw/logs",
+      "files": {
+        "gateway": "gateway.log",
+        "scout": "scout.log",
+        "censor": "censor.log",
+        "writer": "writer.log",
+        "auditor": "auditor.log"
+      }
+    }
+  }
+}

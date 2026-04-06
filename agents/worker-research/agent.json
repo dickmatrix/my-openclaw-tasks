@@ -1,0 +1,26 @@
+{
+  "id": "worker-research",
+  "name": "Worker_Research",
+  "agentDir": "./agents/worker-research",
+  "system_prompt_path": "./agents/worker-research/system_prompt.md",
+  "tools": ["web_search", "finance_api", "crawler"],
+  "options": {
+    "model": "moonshot/kimi-k2.5",
+    "temperature": 0.5,
+    "max_tokens": 2048,
+    "top_p": 0.7
+  },
+  "knowledgeBase": {
+    "silverPriceHistory": "./agents/worker-research/memory/silver_price_history.md",
+    "plcIndustryStandards": "./agents/worker-research/memory/plc_standards.md"
+  },
+  "skills": {
+    "webSearch": "./agents/worker-research/skills/web_search.py",
+    "duckduckgoSearch": "./agents/worker-research/skills/duckduckgo_free_search.py",
+    "geminiGroundingSearch": "./agents/worker-research/skills/gemini_grounding_search.py",
+    "searchRouter": "./agents/worker-research/skills/search_router.py",
+    "akshare": "./agents/worker-research/skills/akshare_interface.py",
+    "crawler": "./agents/worker-research/skills/crawler.py"
+  },
+  "parent": "kakashi-controller"
+}

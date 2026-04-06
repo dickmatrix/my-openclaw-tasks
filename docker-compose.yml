@@ -1,0 +1,123 @@
+services:
+  copilot-pool:
+    image: aaamoon/copilot-gpt4-service:latest
+    container_name: copilot_pool
+    restart: unless-stopped
+    env_file: .env
+    # 不再对外暴露 8088，仅供 orchestrator 内网访问
+    expose:
+      - "8080"
+    volumes:
+      - ./container-data/copilot-cache:/app/db
+    command: >
+      -port 8080
+      -super_token ${COPILOT_SUPER_TOKEN}
+      -enable_super_token
+      -cache true
+      -cache_path db/cache.sqlite3
+      -rate_limit 0
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  orchestrator:
+    build:
+      context: .
+      dockerfile: Dockerfile.orchestrator
+    container_name: copilot_orchestrator
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # 内网直连 copilot_pool 容器（不走宿主机）
+      - TARGET_URL=http://copilot_pool:8080
+      - TOKEN_DIR=/tokens
+      - POOL_FILE=/tokens/token_pool.txt
+      - ORCHESTRATOR_PORT=8090
+    volumes:
+      # 共享 tokens 目录：get_token.py 写入，orchestrator watchdog 读取
+      - ./tokens:/tokens
+    ports:
+      - "127.0.0.1:8090:8090"
+    depends_on:
+      - copilot-pool
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  openclaw:
+    build:
+      context: .
+      dockerfile: Dockerfile.openclaw
+    image: local/openclaw:playwright
+    container_name: openclaw_app
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - OPENCLAW_CONFIG_PATH=/app/openclaw.json
+      - OPENCLAW_WORKSPACE=/app/workspace
+      - OPENCLAW_AGENTS_ROOT=/app/agents
+      # Must match volume ./openclaw_state:/app/.openclaw (default state is ~/.openclaw = /home/node/.openclaw)
+      - OPENCLAW_STATE_DIR=/app/.openclaw
+      - HTTP_PROXY=http://host.docker.internal:7897
+      - HTTPS_PROXY=http://host.docker.internal:7897
+      - http_proxy=http://host.docker.internal:7897
+      - https_proxy=http://host.docker.internal:7897
+      - NO_PROXY=localhost,127.0.0.1,host.docker.internal
+      - no_proxy=localhost,127.0.0.1,host.docker.internal
+      - SCRAPER_API_KEY=${SCRAPER_API_KEY}
+      - SCRAPER_API_ENDPOINT=${SCRAPER_API_ENDPOINT}
+      - SCRAPER_TIMEOUT=${SCRAPER_TIMEOUT}
+      - SCRAPER_MAX_RETRIES=${SCRAPER_MAX_RETRIES}
+      - SCRAPER_FALLBACK_MODE=${SCRAPER_FALLBACK_MODE}
+    volumes:
+      # 挂载配置文件和 agents
+      - ./openclaw.json:/app/openclaw.json:rw
+      - ./workspace:/app/workspace
+      # 挂载本机 agents 目录，使容器可以找到所有 agent workspace
+      - ./agents:/app/agents
+      # writer agent 知识库持久化
+      - ./agents/writer/knowledge-base:/app/agents/writer/knowledge-base
+      # 挂载 auditor 本地知识库
+      - ./agents/auditor/本地ide集群知识库:/app/agents/auditor/本地ide集群知识库
+      # 持久化设备身份（一劳永逸解决飞书配对问题）
+      - ./identity:/app/identity
+      # 使用宿主机目录替代 volume，解决 node 用户无写权限导致配对失败
+      - ./openclaw_state:/app/.openclaw
+      # 持久化 Chromium 浏览器缓存（防止容器重启后重新下载）
+      - ./container-data/playwright-cache:/root/.cache/ms-playwright
+      # 逻辑蒸馏持久卷
+      - distill_volume:/app/distill
+    ports:
+      - "127.0.0.1:18789:18889"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+  zed-backend:
+    image: lscr.io/linuxserver/openssh-server:latest
+    container_name: zed_backend
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - USER_NAME=${ZED_REMOTE_USER:-dev}
+      - USER_PASSWORD=${ZED_REMOTE_PASSWORD:-dev123456}
+      - PASSWORD_ACCESS=true
+      - PUBLIC_KEY_FILE=/keys/id_ed25519.pub
+      - SUDO_ACCESS=true
+      - LOG_STDOUT=true
+    volumes:
+      - ./:/project
+      - ./workspace:/workspace
+      - ./agents:/agents
+      - /Users/mac/.ssh/id_ed25519.pub:/keys/id_ed25519.pub:ro
+    ports:
+      - "127.0.0.1:2222:2222"
+    depends_on:
+      - openclaw
+
+volumes:
+  distill_volume:
+

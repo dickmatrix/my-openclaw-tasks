@@ -1,0 +1,13 @@
+{
+  "id": "auditor",
+  "name": "Auditor_Risk",
+  "channel_type": "feishu",
+  "account_ref": "shen_ji_yuan",
+  "agentDir": "./agents/auditor",
+  "system_prompt_path": "./agents/auditor/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 1500
+  }
+}

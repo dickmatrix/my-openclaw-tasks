@@ -1,0 +1,17 @@
+{
+  "id": "researcher",
+  "name": "搜索员_Researcher",
+  "channel_type": "discord",
+  "account_ref": "discord_researcher",
+  "agentDir": "./agents/researcher",
+  "system_prompt_path": "./agents/researcher/system_prompt.md",
+  "tools": ["web_search", "messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 2000
+  },
+  "discord_config": {
+    "bot_id": "1484924458782429244",
+    "account_id": "discord_researcher"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "quant_analyst",
+  "name": "Quant_Analyst",
+  "agentDir": "./agents/quant_analyst",
+  "system_prompt_path": "./agents/quant_analyst/system_prompt.md",
+  "tools": ["messaging", "web_search"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 4096
+  }
+}

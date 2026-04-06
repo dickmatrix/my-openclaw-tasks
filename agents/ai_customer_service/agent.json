@@ -1,0 +1,13 @@
+{
+  "id": "ai_customer_service",
+  "name": "AI_Customer_Service",
+  "channel_type": "discord",
+  "account_ref": "ai_customer_service",
+  "agentDir": "./agents/ai_customer_service",
+  "system_prompt_path": "./agents/ai_customer_service/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.2,
+    "max_tokens": 2000
+  }
+}

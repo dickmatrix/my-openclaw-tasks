@@ -1,0 +1,11 @@
+{
+  "id": "validator",
+  "name": "Validator_Review",
+  "agentDir": "./agents/validator",
+  "system_prompt_path": "./agents/validator/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 2000
+  }
+}

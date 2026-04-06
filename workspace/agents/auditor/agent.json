@@ -1,0 +1,17 @@
+{
+  "id": "auditor",
+  "name": "合规审计_Auditor",
+  "channel_type": "discord",
+  "account_ref": "discord_auditor",
+  "agentDir": "./agents/auditor",
+  "system_prompt_path": "./agents/auditor/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 1500
+  },
+  "discord_config": {
+    "bot_id": "1484930696613990470",
+    "account_id": "discord_auditor"
+  }
+}

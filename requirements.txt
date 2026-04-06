@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+openai>=1.0.0      # 用于调用大模型 API
+requests           # 用于处理 HTTP 网络请求
+python-dotenv      # 用于读取 .env 配置文件中的 API Key
+pydantic           # 用于数据格式验证
+duckduckgo-search  # 免费搜索方案 A - 完全无需 API Key
+google-generativeai # 免费搜索方案 B - Gemini Grounding (1000/day)
+httpx              # 异步 HTTP 客户端

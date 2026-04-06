@@ -1,0 +1,13 @@
+{
+  "id": "tester",
+  "name": "Tester_QA",
+  "channel_type": "discord",
+  "account_ref": "tester",
+  "agentDir": "./agents/tester",
+  "system_prompt_path": "./agents/tester/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 2000
+  }
+}

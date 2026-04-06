@@ -1,0 +1,248 @@
+{
+  "providers": {
+    "moonshot": {
+      "baseUrl": "https://api.moonshot.cn/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi-K2.5",
+          "api": "openai-completions",
+          "reasoning": false,
+          "contextWindow": 256000,
+          "maxTokens": 8192,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ],
+      "apiKey": "MOONSHOT_API_KEY"
+    },
+    "kimi-coding": {
+      "baseUrl": "https://api.kimi.com/coding/",
+      "api": "anthropic-messages",
+      "headers": {
+        "User-Agent": "claude-code/0.1.0"
+      },
+      "models": [
+        {
+          "id": "k2p5",
+          "name": "Kimi for Coding",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        }
+      ],
+      "apiKey": "sk-kimi-w5u3TcQAZfg2vLDt2E9hNwgAaEKfG7ynIGM4bkPMeH3A7N3X58kwuPZWiKzaiiQz"
+    },
+    "nscc-minimax-1": {
+      "baseUrl": "https://api.scnet.cn/api/llm/v1",
+      "apiKey": "sk-MTY5LTExNjg0MjM2Mzc2LTE3NzMzMDU4NDAzMDE=",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax-M2.5(NSCC-1)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "contextWindow": 256000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "nscc-minimax-2": {
+      "baseUrl": "https://api.scnet.cn/api/llm/v1",
+      "apiKey": "sk-MzMzLTExMjMzMDEzODU3LTE3NzM4MTA5MjQzMjM=",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax-M2.5(NSCC-2)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "contextWindow": 256000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "nscc-minimax-3": {
+      "baseUrl": "https://api.scnet.cn/api/llm/v1",
+      "apiKey": "sk-OTg3LTEyNjM5NTExNDEwLTE3NzM4MTMzNDkwOTc=",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax-M2.5(NSCC-3)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "contextWindow": 256000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "nscc-qwen-1": {
+      "baseUrl": "https://api.scnet.cn/api/llm/v1",
+      "apiKey": "sk-MTY5LTExNjg0MjM2Mzc2LTE3NzMzMDU4NDAzMDE=",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "Qwen3-235B-A22B",
+          "name": "Qwen3-235B-A22B(NSCC-1)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "nscc-qwen-2": {
+      "baseUrl": "https://api.scnet.cn/api/llm/v1",
+      "apiKey": "sk-MzMzLTExMjMzMDEzODU3LTE3NzM4MTA5MjQzMjM=",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "Qwen3-235B-A22B",
+          "name": "Qwen3-235B-A22B(NSCC-2)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "nscc-qwen-3": {
+      "baseUrl": "https://api.scnet.cn/api/llm/v1",
+      "apiKey": "sk-OTg3LTEyNjM5NTExNDEwLTE3NzM4MTMzNDkwOTc=",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "Qwen3-235B-A22B",
+          "name": "Qwen3-235B-A22B(NSCC-3)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "deepseek-official": {
+      "baseUrl": "https://api.deepseek.com/v1",
+      "apiKey": "sk-bcac425424f24ca8bc1f89daa0157b6f",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "deepseek-reasoner",
+          "name": "DeepSeek-R1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "contextWindow": 64000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "ollama": {
+      "baseUrl": "http://localhost:11434/v1",
+      "apiKey": "OLLAMA_API_KEY",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "nomic-v2",
+          "name": "Ollama-Embed-V2",
+          "api": "openai-completions",
+          "contextWindow": 8192,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192
+        }
+      ]
+    }
+  }
+}

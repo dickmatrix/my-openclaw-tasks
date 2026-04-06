@@ -1,0 +1,11 @@
+{
+  "id": "auditor-code",
+  "name": "Auditor_Code",
+  "agentDir": "./agents/auditor-code",
+  "system_prompt_path": "./agents/auditor-code/system_prompt.md",
+  "tools": ["messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 1500
+  }
+}

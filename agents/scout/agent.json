@@ -1,0 +1,11 @@
+{
+  "id": "scout",
+  "name": "Scout_Recon",
+  "agentDir": "./agents/scout",
+  "system_prompt_path": "./agents/scout/system_prompt.md",
+  "tools": ["web_search", "messaging"],
+  "options": {
+    "temperature": 0.0,
+    "max_tokens": 2000
+  }
+}
