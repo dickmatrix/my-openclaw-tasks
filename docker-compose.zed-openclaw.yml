@@ -1,0 +1,52 @@
+services:
+  openclaw:
+    build:
+      context: .
+      dockerfile: Dockerfile.openclaw
+    image: local/openclaw:playwright
+    container_name: openclaw_app
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - OPENCLAW_CONFIG_PATH=/app/openclaw.json
+      - OPENCLAW_WORKSPACE=/app/workspace
+      - OPENCLAW_AGENTS_ROOT=/app/agents
+      - OPENCLAW_STATE_DIR=/app/.openclaw
+      - HTTP_PROXY=http://host.docker.internal:7897
+      - HTTPS_PROXY=http://host.docker.internal:7897
+      - http_proxy=http://host.docker.internal:7897
+      - https_proxy=http://host.docker.internal:7897
+      - NO_PROXY=localhost,127.0.0.1,host.docker.internal
+      - no_proxy=localhost,127.0.0.1,host.docker.internal
+      - SCRAPER_API_KEY=${SCRAPER_API_KEY}
+      - SCRAPER_API_ENDPOINT=${SCRAPER_API_ENDPOINT}
+      - SCRAPER_TIMEOUT=${SCRAPER_TIMEOUT}
+      - SCRAPER_MAX_RETRIES=${SCRAPER_MAX_RETRIES}
+      - SCRAPER_FALLBACK_MODE=${SCRAPER_FALLBACK_MODE}
+    volumes:
+      - ./openclaw.json:/app/openclaw.json:rw
+      - ./workspace:/app/workspace
+      - ./agents:/app/agents
+      - ./agents/writer/knowledge-base:/app/agents/writer/knowledge-base
+      - ./agents/auditor/本地ide集群知识库:/app/agents/auditor/本地ide集群知识库
+      - ./identity:/app/identity
+      - ./openclaw_state:/app/.openclaw
+      - ./container-data/playwright-cache:/root/.cache/ms-playwright
+      - distill_volume:/app/distill
+    ports:
+      - "127.0.0.1:18789:18889"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+    networks:
+      - zed_stack
+
+networks:
+  zed_stack:
+    name: openclaw_zed_stack
+
+volumes:
+  distill_volume:

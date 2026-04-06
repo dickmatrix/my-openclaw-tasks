@@ -1,0 +1,15 @@
+# syntax=docker/dockerfile:1
+FROM debian:bookworm-slim
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        openssh-server sudo ca-certificates bash \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /var/run/sshd /etc/zed-remote
+
+COPY docker/zed-remote-entrypoint.sh /usr/local/bin/zed-remote-entrypoint.sh
+RUN chmod +x /usr/local/bin/zed-remote-entrypoint.sh
+
+EXPOSE 22
+ENTRYPOINT ["/usr/local/bin/zed-remote-entrypoint.sh"]

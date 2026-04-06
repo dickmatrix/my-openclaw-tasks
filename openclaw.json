@@ -1,0 +1,628 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.4.2",
+    "lastTouchedAt": "2026-04-05T19:05:28.571Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-04-05T19:05:28.454Z",
+    "lastRunVersion": "2026.4.2",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "messages": {
+    "inbound": {
+      "debounceMs": 1500,
+      "byChannel": {
+        "feishu": 2000
+      }
+    },
+    "queue": {
+      "mode": "collect",
+      "debounceMs": 1000,
+      "cap": 20,
+      "drop": "summarize"
+    }
+  },
+  "auth": {
+    "profiles": {
+      "nscc-qwen-fast": {
+        "provider": "openai",
+        "mode": "api_key"
+      },
+      "nscc-minimax-1": {
+        "provider": "openai",
+        "mode": "api_key"
+      },
+      "nscc-qwen-1": {
+        "provider": "openai",
+        "mode": "api_key"
+      },
+      "nscc-qwen-2": {
+        "provider": "openai",
+        "mode": "api_key"
+      },
+      "nscc-qwen-3": {
+        "provider": "openai",
+        "mode": "api_key"
+      },
+      "deepseek-official": {
+        "provider": "openai",
+        "mode": "api_key"
+      },
+      "moonshot": {
+        "provider": "openai",
+        "mode": "api_key"
+      },
+      "ollama": {
+        "provider": "openai",
+        "mode": "api_key"
+      },
+      "glm": {
+        "provider": "openai",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "nscc-qwen-fast": {
+        "baseUrl": "https://api.scnet.cn/api/llm/v1",
+        "apiKey": "${NSCC_API_KEY_1}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "Qwen3-30B-A3B-Instruct-2507",
+            "name": "Qwen3-30B-Fast",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 32000,
+            "maxTokens": 1024
+          }
+        ]
+      },
+      "nscc-minimax-1": {
+        "baseUrl": "https://api.scnet.cn/api/llm/v1",
+        "apiKey": "${NSCC_API_KEY_1}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax-M2.5(NSCC-1)",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 256000,
+            "maxTokens": 4096
+          },
+          {
+            "id": "Qwen3-Embedding-8B",
+            "name": "Qwen3-Embedding-8B(NSCC-1)",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 8192,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "nscc-qwen-1": {
+        "baseUrl": "https://api.scnet.cn/api/llm/v1",
+        "apiKey": "${NSCC_API_KEY_1}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "Qwen3-235B-A22B",
+            "name": "Qwen3-235B-A22B(NSCC-1)",
+            "api": "openai-completions",
+            "reasoning": true,
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "nscc-qwen-2": {
+        "baseUrl": "https://api.scnet.cn/api/llm/v1",
+        "apiKey": "${NSCC_API_KEY_2}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "Qwen3-235B-A22B",
+            "name": "Qwen3-235B-A22B(NSCC-2)",
+            "api": "openai-completions",
+            "reasoning": true,
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "nscc-qwen-3": {
+        "baseUrl": "https://api.scnet.cn/api/llm/v1",
+        "apiKey": "${NSCC_API_KEY_3}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "Qwen3-235B-A22B",
+            "name": "Qwen3-235B-A22B(NSCC-3)",
+            "api": "openai-completions",
+            "reasoning": true,
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "deepseek-official": {
+        "baseUrl": "https://api.deepseek.com/v1",
+        "apiKey": "${DEEPSEEK_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "deepseek-reasoner",
+            "name": "DeepSeek-V3.2",
+            "api": "openai-completions",
+            "reasoning": true,
+            "contextWindow": 64000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "moonshot": {
+        "baseUrl": "https://api.moonshot.cn/v1",
+        "apiKey": "${MOONSHOT_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "kimi-k2.5",
+            "name": "Kimi-K2.5",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 256000,
+            "maxTokens": 512
+          }
+        ]
+      },
+      "ollama": {
+        "baseUrl": "http://127.0.0.1:11434/v1",
+        "apiKey": "${OLLAMA_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "nomic-v2",
+            "name": "Ollama-Embed-V2",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 32000,
+            "maxTokens": 16000
+          },
+          {
+            "id": "qwen3:8b",
+            "name": "Ollama-Qwen3-8B",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 32000,
+            "maxTokens": 4096
+          },
+          {
+            "id": "bge-m3:latest",
+            "name": "Ollama-BGE-M3",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 8192,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "glm": {
+        "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+        "apiKey": "${GLM_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "GLM-4.7-Flash",
+            "name": "GLM-4.7-Flash",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "embedding-3",
+            "name": "GLM-Embedding-3",
+            "api": "openai-completions",
+            "reasoning": false,
+            "contextWindow": 8192,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "glm/GLM-4.7-Flash",
+        "fallbacks": [
+          "nscc-qwen-fast/Qwen3-30B-A3B-Instruct-2507",
+          "moonshot/kimi-k2.5"
+        ]
+      },
+      "models": {
+        "heavy_track": {
+          "alias": "MiniMax Heavy Track",
+          "params": {
+            "stream": true,
+            "incremental_output": true,
+            "timeout": 120000
+          },
+          "streaming": true
+        }
+      },
+      "workspace": "${OPENCLAW_WORKSPACE}",
+      "memorySearch": {
+        "enabled": true,
+        "provider": "openai",
+        "model": "glm/embedding-3",
+        "query": {
+          "maxResults": 6
+        },
+        "chunking": {
+          "tokens": 600,
+          "overlap": 80
+        }
+      },
+      "compaction": {
+        "mode": "default",
+        "reserveTokens": 3000,
+        "model": "nscc-qwen-fast/Qwen3-30B-A3B-Instruct-2507"
+      },
+      "thinkingDefault": "low",
+      "verboseDefault": "off",
+      "maxConcurrent": 16,
+      "subagents": {
+        "maxConcurrent": 8,
+        "model": "glm/GLM-4.7-Flash"
+      },
+      "sandbox": {
+        "mode": "off"
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "director",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/director"
+      },
+      {
+        "id": "architect",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/architect"
+      },
+      {
+        "id": "researcher",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/researcher"
+      },
+      {
+        "id": "validator",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/validator"
+      },
+      {
+        "id": "tester",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/tester"
+      },
+      {
+        "id": "executor",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/executor"
+      },
+      {
+        "id": "creative",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/creative"
+      },
+      {
+        "id": "auditor",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/auditor",
+        "model": {
+          "primary": "glm/GLM-4.7-Flash",
+          "fallbacks": [
+            "nscc-qwen-fast/Qwen3-30B-A3B-Instruct-2507"
+          ]
+        }
+      },
+      {
+        "id": "auditor-code",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/auditor-code",
+        "model": {
+          "primary": "glm/GLM-4.7-Flash",
+          "fallbacks": [
+            "nscc-qwen-fast/Qwen3-30B-A3B-Instruct-2507"
+          ]
+        }
+      },
+      {
+        "id": "ai_customer_service",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/ai_customer_service"
+      },
+      {
+        "id": "censor",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/censor",
+        "model": {
+          "primary": "glm/GLM-4.7-Flash",
+          "fallbacks": [
+            "nscc-qwen-fast/Qwen3-30B-A3B-Instruct-2507"
+          ]
+        }
+      },
+      {
+        "id": "writer",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/writer"
+      },
+      {
+        "id": "scout",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/scout"
+      },
+      {
+        "id": "worker-code",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/worker-code"
+      },
+      {
+        "id": "worker-doc",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/worker-doc"
+      },
+      {
+        "id": "worker-research",
+        "workspace": "${OPENCLAW_AGENTS_ROOT}/worker-research"
+      }
+    ]
+  },
+  "tools": {
+    "allow": [
+      "feishu",
+      "talk-voice",
+      "acpx",
+      "ddg-search"
+    ],
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent": {
+      "enabled": true
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "director",
+      "match": {
+        "channel": "feishu",
+        "accountId": "da_jie_tou_win"
+      }
+    },
+    {
+      "agentId": "auditor",
+      "match": {
+        "channel": "feishu",
+        "accountId": "shen_ji_yuan"
+      }
+    },
+    {
+      "agentId": "censor",
+      "match": {
+        "channel": "feishu",
+        "accountId": "shen_cha_yuan"
+      }
+    },
+    {
+      "agentId": "writer",
+      "match": {
+        "channel": "feishu",
+        "accountId": "bian_ji_yuan"
+      }
+    },
+    {
+      "agentId": "scout",
+      "match": {
+        "channel": "feishu",
+        "accountId": "zhen_cha_yuan"
+      }
+    },
+    {
+      "agentId": "architect",
+      "match": {
+        "channel": "feishu",
+        "accountId": "mei_gu_zuo_kong_win"
+      }
+    }
+  ],
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "hooks": {
+    "enabled": true,
+    "path": "/hooks",
+    "token": "${GATEWAY_HOOK_TOKEN}",
+    "defaultSessionKey": "hook:feishu-gateway",
+    "allowRequestSessionKey": true,
+    "allowedSessionKeyPrefixes": [
+      "hook:"
+    ],
+    "allowedAgentIds": [
+      "main",
+      "director",
+      "architect",
+      "researcher",
+      "validator",
+      "tester",
+      "executor",
+      "creative",
+      "auditor",
+      "ai_customer_service",
+      "us_short_ai",
+      "worker-code",
+      "worker-doc",
+      "worker-research",
+      "scout",
+      "censor",
+      "writer",
+      "auditor-code"
+    ]
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "accounts": {
+        "da_jie_tou_win": {
+          "appId": "${FEISHU_DAJIETOU_APP_ID}",
+          "appSecret": "${FEISHU_DAJIETOU_APP_SECRET}"
+        },
+        "mei_gu_zuo_kong_win": {
+          "appId": "${FEISHU_US_SHORT_APP_ID}",
+          "appSecret": "${FEISHU_US_SHORT_APP_SECRET}"
+        },
+        "shen_ji_yuan": {
+          "appId": "${FEISHU_AUDITOR_APP_ID}",
+          "appSecret": "${FEISHU_AUDITOR_APP_SECRET}"
+        },
+        "shen_cha_yuan": {
+          "appId": "${FEISHU_CENSOR_APP_ID}",
+          "appSecret": "${FEISHU_CENSOR_APP_SECRET}"
+        },
+        "bian_ji_yuan": {
+          "appId": "${FEISHU_WRITER_APP_ID}",
+          "appSecret": "${FEISHU_WRITER_APP_SECRET}"
+        },
+        "zhen_cha_yuan": {
+          "appId": "${FEISHU_SCOUT_APP_ID}",
+          "appSecret": "${FEISHU_SCOUT_APP_SECRET}"
+        },
+        "default": {
+          "webhookPath": "/feishu/events",
+          "dmPolicy": "open",
+          "allowFrom": [
+            "*"
+          ],
+          "groupPolicy": "open"
+        }
+      },
+      "defaultAccount": "da_jie_tou_win",
+      "connectionMode": "websocket",
+      "domain": "feishu",
+      "reactionNotifications": "own",
+      "typingIndicator": true,
+      "resolveSenderNames": true,
+      "groups": {
+        "*": {
+          "requireMention": true
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18889,
+    "mode": "local",
+    "bind": "loopback",
+    "controlUi": {
+      "allowedOrigins": [
+        "http://localhost:18889",
+        "http://127.0.0.1:18889"
+      ],
+      "allowInsecureAuth": false,
+      "dangerouslyDisableDeviceAuth": false
+    },
+    "auth": {
+      "mode": "token",
+      "token": "${OPENCLAW_GATEWAY_TOKEN}",
+      "allowTailscale": true,
+      "rateLimit": {
+        "maxAttempts": 10,
+        "windowMs": 60000,
+        "lockoutMs": 300000
+      }
+    },
+    "allowRealIpFallback": false,
+    "http": {
+      "endpoints": {
+        "chatCompletions": {
+          "enabled": true
+        },
+        "responses": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "skills": {
+    "entries": {
+      "gh-issues": {
+        "apiKey": "${GITHUB_TOKEN}"
+      },
+      "goplaces": {
+        "enabled": false,
+        "apiKey": "${GOOGLE_PLACES_API_KEY}"
+      },
+      "notion": {
+        "enabled": false,
+        "apiKey": "${NOTION_API_KEY}"
+      },
+      "openai-whisper-api": {
+        "enabled": false,
+        "apiKey": "${OPENAI_API_KEY}"
+      },
+      "openai-image-gen": {
+        "enabled": false,
+        "apiKey": "${OPENAI_API_KEY}"
+      },
+      "sag": {
+        "enabled": false,
+        "apiKey": "${ELEVENLABS_API_KEY}"
+      },
+      "xurl": {
+        "enabled": false
+      },
+      "wacli": {
+        "enabled": false
+      }
+    }
+  },
+  "plugins": {
+    "allow": [
+      "feishu",
+      "talk-voice",
+      "acpx"
+    ],
+    "slots": {},
+    "entries": {
+      "feishu": {
+        "enabled": true,
+        "config": {}
+      },
+      "talk-voice": {
+        "enabled": true,
+        "config": {}
+      },
+      "acpx": {
+        "enabled": false,
+        "config": {
+          "mcpServers": {
+            "jina-reader": {
+              "command": "npx",
+              "args": [
+                "-y",
+                "@jina-ai/mcp-server"
+              ]
+            },
+            "serpapi": {
+              "command": "npx",
+              "args": [
+                "-y",
+                "@serpapi/mcp-server"
+              ],
+              "env": {
+                "SERPAPI_API_KEY": "${SERPAPI_API_KEY}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
